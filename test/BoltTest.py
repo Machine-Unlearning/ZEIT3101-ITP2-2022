@@ -6,7 +6,7 @@ import threading
 from spherov2 import scanner
 from spherov2.sphero_edu import EventType, SpheroEduAPI
 from spherov2.types import Color
-robots = ["SB-CBFC", "SB-E987", "SB-B11E", "SB-41E0"]
+robots = ["SB-CBFC", "SB-E987", "SB-B11E", "SB-41E0", "SB-CE32"]
 x = 0
 y = 0
 initiator = False
@@ -19,6 +19,7 @@ def thread_function(name):
     if toy is not None:
         print("Connected.")
         with SpheroEduAPI(toy) as droid:
+            droid.set_main_led(Color(r=255, g=0, b=0)) #Sets whole set_matrix
             global y
             global initiator
             y += 1
@@ -34,6 +35,7 @@ def thread_function(name):
                     break
             print(y)
             print("Testing Start...")
+            droid.roll(0, 100, 5)
             droid.set_main_led(Color(r=0, g=255, b=0)) #Sets whole Matrix
             droid.reset_aim()
             droid.set_main_led(Color(r=0,g=0,b=255))
@@ -64,7 +66,6 @@ for robot in robots:
     x += 1
     robot = threading.Thread(target=thread_function, args=(robot,))
     robot.start()
-    time.sleep(10)
 
 
   #droid.register_event(EventType.on_sensor_streaming_data, droid.SensorStreamingInfo) #how you would register to data (function name is custom)
