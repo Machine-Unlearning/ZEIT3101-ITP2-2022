@@ -6,7 +6,7 @@ import threading
 from spherov2 import scanner
 from spherov2.sphero_edu import EventType, SpheroEduAPI
 from spherov2.types import Color
-robots = ["SB-B11E"]
+robots = ["SB-09D3", "SB-41F2"]
 x = 0
 y = 0
 initiator = False
@@ -36,10 +36,44 @@ def thread_function(name):
             print(y)
             print("Testing Start...")
 
-            droid.reset_aim()
-            droid.roll(0, 100, 2)
+
+            if name == "SB-09D3":
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.roll(0, 60, 1)
+                droid.spin(90, 1)
+                droid.roll(90, 60, 1)
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.roll(0, 60, 1)
+                droid.spin(90, 1)
+                droid.roll(90, 60, 1)
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.roll(0, 60, 1)
+                droid.spin(90, 1)
+                droid.roll(90, 60, 1)
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.roll(0, 60, 1)
+                droid.spin(90, 1)
+                droid.roll(90, 60, 1)
 
 
+            # Slight fix in timing to spin, also need to collectively align the headings
+            if name == "SB-41F2":
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.spin(90, 3.5)
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.spin(90, 3.5)
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.spin(90, 3.5)
+                droid.reset_aim()
+                droid.roll(0, 60, 2)
+                droid.spin(90, 3.5)
 
             #droid.set_speed(30)
             #droid.spin(360, 20)
@@ -62,18 +96,6 @@ for robot in robots:
     x += 1
     robot = threading.Thread(target=thread_function, args=(robot,))
     robot.start()
-turnRight("SB-B11E")
-for robot in robots:
-    robot = threading.Thread(target=thread_function, args=(robot,))
-    robot.start()
-turnRight("SB-B11E")
-for robot in robots:
-    robot = threading.Thread(target=thread_function, args=(robot,))
-    robot.start()
-turnRight("SB-B11E")
-for robot in robots:
-    robot = threading.Thread(target=thread_function, args=(robot,))
-    robot.start()
-turnRight("SB-B11E")
+
 
 #droid.register_event(EventType.on_sensor_streaming_data, droid.SensorStreamingInfo) #how you would register to data (function name is custom)
