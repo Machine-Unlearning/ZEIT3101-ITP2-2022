@@ -12,16 +12,20 @@ y = 0
 initiator = False
 
 
+
 def thread_function(name):
     print("Testing Starting...")
     print("Connecting to Bolt...")
     toy = scanner.find_BOLT(toy_name=name)
+
     if toy is not None:
         print("Connected.")
         with SpheroEduAPI(toy) as droid:
+
             droid.set_main_led(Color(r=255, g=0, b=0)) #Sets whole set_matrix
             global y
             global initiator
+
             y += 1
             print(y)
             if y == x:
@@ -36,58 +40,56 @@ def thread_function(name):
             print(y)
             print("Testing Start...")
 
+            # Sub function for readability
+            # Need to align the timings so they execute at the same time.
+            def turnRight():
 
-            if name == "SB-09D3":
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.roll(0, 60, 1)
-                droid.spin(90, 1)
-                droid.roll(90, 60, 1)
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.roll(0, 60, 1)
-                droid.spin(90, 1)
-                droid.roll(90, 60, 1)
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.roll(0, 60, 1)
-                droid.spin(90, 1)
-                droid.roll(90, 60, 1)
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.roll(0, 60, 1)
-                droid.spin(90, 1)
-                droid.roll(90, 60, 1)
+                if name == robots[0]:
+                    droid.reset_aim()
+                    droid.roll(0, 60, 2)
+                    droid.spin(90, 3.5)
+
+                    droid.roll(90, 60, 2)
+                    droid.spin(90, 3.5)
+
+                    droid.roll(180, 60, 2)
+                    droid.spin(90, 3.5)
+
+                    droid.roll(270, 60, 2)
+                    droid.spin(90, 3.5)
+
+                if name == robots[1]:
+                    droid.reset_aim()
+                    droid.roll(0, 60, 2)
+                    droid.roll(0, 60, 1)
+                    droid.spin(90, 1)
+                    droid.roll(90, 60, 1)
+
+                    droid.roll(90, 60, 2)
+                    droid.roll(90, 60, 1)
+                    droid.spin(90, 1)
+                    droid.roll(180, 60, 1)
+
+                    droid.roll(180, 60, 2)
+                    droid.roll(180, 60, 1)
+                    droid.spin(90, 1)
+                    droid.roll(270, 60, 1)
+
+                    droid.roll(270, 60, 2)
+                    droid.roll(270, 60, 1)
+                    droid.spin(90, 1)
+                    droid.roll(0, 60, 1)
 
 
-            # Slight fix in timing to spin, also need to collectively align the headings
-            if name == "SB-41F2":
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.spin(90, 3.5)
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.spin(90, 3.5)
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.spin(90, 3.5)
-                droid.reset_aim()
-                droid.roll(0, 60, 2)
-                droid.spin(90, 3.5)
+            turnRight()
 
-            #droid.set_speed(30)
-            #droid.spin(360, 20)
-            #droid.set_main_led(Color(r=255, g=0, b=0)) #Sets whole Matrix
+
+
             print("Testing End...")
 
 
-def turnRight(name):
-    toy = scanner.find_toy(toy_name=name)
-    with SpheroEduAPI(toy) as droid:
-        droid.reset_aim()
-        droid.roll(0, 50, 1)
-        droid.reset_aim()
-        droid.spin(90, 1)
+
+
 
 
 
