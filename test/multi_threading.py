@@ -8,8 +8,8 @@ import threading
 from spherov2 import scanner
 from spherov2.sphero_edu import EventType, SpheroEduAPI
 from spherov2.types import Color
-robots = ["SB-09D3"]
-#robots = ["SB-09D3", "SB-41F2", "SB-B11E", "SB-DAA6"]
+#robots = ["SB-09D3"]
+robots = ["SB-09D3", "SB-41F2", "SB-B11E", "SB-DAA6"]
 x = 0
 y = 0
 initiator = False
@@ -175,55 +175,90 @@ def thread_function(name):
             def turnRightSquare():
 
                 if name == robots[0]:
-                    while time.process_time() < 10:
+                    while time.process_time() < 5:
                         continue
                     droid.reset_aim()
-                    droid.roll(0, 60, 2)
+
                     droid.spin(90, 0.5)
                     droid.roll(90, 60, 1)
 
                 if name == robots[1]:
-                    while time.process_time() < 10:
+                    while time.process_time() < 5:
                         continue
                     droid.reset_aim()
-                    droid.roll(0, 60, 2)
+
                     droid.roll(0, 60, 1)
                     droid.spin(90, 0.5)
                     droid.roll(90, 60, 1)
-                    droid.roll(90, 60, 1.3)
-
-
+                    droid.roll(90, 60, 1)
 
                 if name == robots[2]:
                     while time.process_time() < 10:
                         continue
                     droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    while time.process_time() < 13:
+
+                    while time.process_time() < 12:
                         continue
                     droid.roll(0, 60, 1.25)
                     droid.spin(90, 1)
 
+                if name == robots[3]:
+                    while time.process_time() < 13:
+                        continue
+                    droid.reset_aim()
+
+                    droid.roll(0, 60, 1)
+
+                    droid.roll(0, 60, 1)
+                    droid.spin(90, 1)
+                    droid.roll(90, 60, 1.1)
+
+            def turnLeftSquare():
+
+                if name == robots[1]:
+                    while time.process_time() < 7:
+                        continue
+                    droid.reset_aim()
+
+                    droid.spin(-90, 0.5)
+                    droid.roll(-90, 60, 1)
+
+                if name == robots[0]:
+                    while time.process_time() < 7:
+                        continue
+
+                    droid.reset_aim()
+
+                    droid.roll(0, 60, 1)
+                    droid.spin(-90, 0.5)
+                    droid.roll(-90, 60, 1)
+                    droid.roll(-90, 60, 1)
 
                 if name == robots[3]:
                     while time.process_time() < 10:
                         continue
                     droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.roll(0, 60, 1)
-                    while time.process_time() < 16:
+
+                    while time.process_time() < 12:
                         continue
-                    droid.roll(0, 60, 0.8)
-                    droid.spin(90, 1)
-                    droid.roll(90, 60, 1.1)
+                    droid.roll(0, 60, 1.25)
+                    droid.spin(-90, 1)
 
+                if name == robots[2]:
+                    while time.process_time() < 13:
+                        continue
+                    droid.reset_aim()
 
+                    droid.roll(0, 60, 1)
+
+                    droid.roll(0, 60, 1)
+                    droid.spin(-90, 1)
+                    droid.roll(-90, 60, 1.1)
 
             #turnRightLine()
             #turnLeftLine()
-            droid.spin(180, 2)
-            turnRightSquare()
-
+            #turnRightSquare()
+            turnLeftSquare()
 
             print("Testing End...")
 
