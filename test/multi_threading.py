@@ -23,6 +23,7 @@ def thread_function(name):
     print("Connecting to Bolt...")
     toy = scanner.find_BOLT(toy_name=name)
 
+
     if toy is not None:
         print("Connected.")
         with SpheroEduAPI(toy) as droid:
@@ -47,198 +48,47 @@ def thread_function(name):
 
             # Sub function for readability
             # Need to align the timings so they execute at the same time.
-            def turnRightLine():
+            def turnRightLine(amount):
+                num = 0
 
-                if name == robots[0]:
-                    while time.process_time() < 10:
-                        continue
-                    droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.spin(90, 3.5)
-                    print(time.process_time())
+                while num < amount:
+                    if name == robots[0]:
 
-                    while time.process_time() < 14:
-                        continue
-                    droid.roll(90, 60, 2)
-                    droid.spin(90, 3.5)
-                    print(time.process_time())
+                        droid.reset_aim()
+                        droid.roll(0, 60, 2)
+                        droid.spin(90, 3.5)
+                        break
 
-                    while time.process_time() < 18:
-                        continue
-                    droid.roll(180, 60, 2)
-                    droid.spin(90, 3.5)
-                    print(time.process_time())
+                    if name == robots[num]:
 
-                    while time.process_time() < 22:
-                        continue
-                    droid.roll(270, 60, 2)
-                    droid.spin(90, 3.5)
-                    print(time.process_time())
+                        droid.reset_aim()
+                        droid.roll(0, 60, 2)
+                        droid.roll(0, 60, 1*num)
+                        droid.spin(90, 1)
+                        droid.roll(90, 60, 1.1*num)
 
-                if name == robots[1]:
-                    while time.process_time() < 10:
-                        continue
-                    droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.roll(0, 60, 1)
-                    droid.spin(90, 1)
-                    droid.roll(90, 60, 1)
-                    print(time.process_time())
+                    num = num + 1
 
-                    while time.process_time() < 14:
-                        continue
-                    droid.roll(90, 60, 2)
-                    droid.roll(90, 60, 1)
-                    droid.spin(90, 1)
-                    droid.roll(180, 60, 1)
-                    print(time.process_time())
+            def turnLeftLine(amount):
+                num = 0
 
-                    while time.process_time() < 18:
-                        continue
-                    droid.roll(180, 60, 2)
-                    droid.roll(180, 60, 1)
-                    droid.spin(90, 1)
-                    droid.roll(270, 60, 1)
-                    print(time.process_time())
+                while num < amount:
+                    if name == robots[len(robots)-1]:
+                        droid.reset_aim()
+                        droid.roll(0, 60, 2)
+                        droid.spin(-90, 3.5)
+                        break
 
-                    while time.process_time() < 22:
-                        continue
-                    droid.roll(270, 60, 2)
-                    droid.roll(270, 60, 1)
-                    droid.spin(90, 1)
-                    droid.roll(0, 60, 1.1)
-                    print(time.process_time())
+                    if name == robots[len(robots)-1-num]:
+                        droid.reset_aim()
+                        droid.roll(0, 60, 2)
+                        droid.roll(0, 60, 1 * num)
+                        droid.spin(-90, 1)
+                        droid.roll(-90, 60, 1.1 * num)
 
-                if name == robots[2]:
-                    while time.process_time() < 10:
-                        continue
-                    droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.roll(0, 60, 2)
-                    droid.spin(90, 1)
-                    droid.roll(90, 60, 2)
-                    print(time.process_time())
-
-                    while time.process_time() < 14:
-                        continue
-                    droid.roll(90, 60, 2)
-                    droid.roll(90, 60, 2)
-                    droid.spin(90, 1)
-                    droid.roll(180, 60, 2)
-                    print(time.process_time())
-
-                    while time.process_time() < 18:
-                        continue
-                    droid.roll(180, 60, 2)
-                    droid.roll(180, 60, 2)
-                    droid.spin(90, 1)
-                    droid.roll(270, 60, 2)
-                    print(time.process_time())
-
-                    while time.process_time() < 22:
-                        continue
-                    droid.roll(270, 60, 2)
-                    droid.roll(270, 60, 2)
-                    droid.spin(90, 1)
-                    droid.roll(0, 60, 2.2)
-                    print(time.process_time())
-
-                if name == robots[3]:
-                    while time.process_time() < 10:
-                        continue
-                    droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.roll(0, 60, 3)
-                    droid.spin(90, 1)
-                    droid.roll(90, 60, 3)
-                    print(time.process_time())
-
-                    while time.process_time() < 14:
-                        continue
-                    droid.roll(90, 60, 2)
-                    droid.roll(90, 60, 3)
-                    droid.spin(90, 1)
-                    droid.roll(180, 60, 3)
-                    print(time.process_time())
-
-                    while time.process_time() < 18:
-                        continue
-                    droid.roll(180, 60, 2)
-                    droid.roll(180, 60, 3)
-                    droid.spin(90, 1)
-                    droid.roll(270, 60, 3)
-                    print(time.process_time())
-
-                    while time.process_time() < 22:
-                        continue
-                    droid.roll(270, 60, 2)
-                    droid.roll(270, 60, 3)
-                    droid.spin(90, 1)
-                    droid.roll(0, 60, 3.3)
-                    print(time.process_time())
-
-            def turnLeftLine():
+                    num = num + 1
 
 
-                if name == robots[len(robots)-1]:
-                    while time.process_time() < 10:
-                        continue
-                    droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.spin(-90, 3.5)
-                    print(time.process_time())
-
-                    while time.process_time() < 14:
-                        continue
-                    droid.roll(-90, 60, 2)
-                    droid.spin(-90, 3.5)
-                    print(time.process_time())
-
-                    while time.process_time() < 18:
-                        continue
-                    droid.roll(-180, 60, 2)
-                    droid.spin(-90, 3.5)
-                    print(time.process_time())
-
-                    while time.process_time() < 22:
-                        continue
-                    droid.roll(-270, 60, 2)
-                    droid.spin(-90, 3.5)
-                    print(time.process_time())
-
-                if name == robots[len(robots)-2]:
-                    while time.process_time() < 10:
-                        continue
-                    droid.reset_aim()
-                    droid.roll(0, 60, 2)
-                    droid.roll(0, 60, 1)
-                    droid.spin(-90, 1)
-                    droid.roll(-90, 60, 1)
-                    print(time.process_time())
-
-                    while time.process_time() < 14:
-                        continue
-                    droid.roll(-90, 60, 2)
-                    droid.roll(-90, 60, 1)
-                    droid.spin(-90, 1)
-                    droid.roll(-180, 60, 1)
-                    print(time.process_time())
-
-                    while time.process_time() < 18:
-                        continue
-                    droid.roll(-180, 60, 2)
-                    droid.roll(-180, 60, 1)
-                    droid.spin(-90, 1)
-                    droid.roll(-270, 60, 1)
-                    print(time.process_time())
-
-                    while time.process_time() < 22:
-                        continue
-                    droid.roll(-270, 60, 2)
-                    droid.roll(-270, 60, 1)
-                    droid.spin(-90, 1)
-                    droid.roll(0, 60, 1.1)
-                    print(time.process_time())
 
             def turnRightSquare():
 
@@ -319,10 +169,12 @@ def thread_function(name):
                     droid.spin(-90, 1)
                     droid.roll(-90, 60, 1.1)
 
-            #turnRightLine()
-            #turnLeftLine()
+            #while time.process_time() < 10:
+                #continue
+            #turnRightLine(4)
+            turnLeftLine(4)
             #turnRightSquare()
-            turnRightSquare()
+            #turnRightSquare()
 
             print("Testing End...")
 
