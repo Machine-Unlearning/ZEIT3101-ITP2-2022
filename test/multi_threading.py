@@ -109,6 +109,74 @@ def thread_function(name):
                     droid.roll(0, 60, 1.1)
                     print(time.process_time())
 
+                if name == robots[2]:
+                    while time.process_time() < 10:
+                        continue
+                    droid.reset_aim()
+                    droid.roll(0, 60, 2)
+                    droid.roll(0, 60, 2)
+                    droid.spin(90, 1)
+                    droid.roll(90, 60, 2)
+                    print(time.process_time())
+
+                    while time.process_time() < 14:
+                        continue
+                    droid.roll(90, 60, 2)
+                    droid.roll(90, 60, 2)
+                    droid.spin(90, 1)
+                    droid.roll(180, 60, 2)
+                    print(time.process_time())
+
+                    while time.process_time() < 18:
+                        continue
+                    droid.roll(180, 60, 2)
+                    droid.roll(180, 60, 2)
+                    droid.spin(90, 1)
+                    droid.roll(270, 60, 2)
+                    print(time.process_time())
+
+                    while time.process_time() < 22:
+                        continue
+                    droid.roll(270, 60, 2)
+                    droid.roll(270, 60, 2)
+                    droid.spin(90, 1)
+                    droid.roll(0, 60, 2.2)
+                    print(time.process_time())
+
+                if name == robots[3]:
+                    while time.process_time() < 10:
+                        continue
+                    droid.reset_aim()
+                    droid.roll(0, 60, 2)
+                    droid.roll(0, 60, 3)
+                    droid.spin(90, 1)
+                    droid.roll(90, 60, 3)
+                    print(time.process_time())
+
+                    while time.process_time() < 14:
+                        continue
+                    droid.roll(90, 60, 2)
+                    droid.roll(90, 60, 3)
+                    droid.spin(90, 1)
+                    droid.roll(180, 60, 3)
+                    print(time.process_time())
+
+                    while time.process_time() < 18:
+                        continue
+                    droid.roll(180, 60, 2)
+                    droid.roll(180, 60, 3)
+                    droid.spin(90, 1)
+                    droid.roll(270, 60, 3)
+                    print(time.process_time())
+
+                    while time.process_time() < 22:
+                        continue
+                    droid.roll(270, 60, 2)
+                    droid.roll(270, 60, 3)
+                    droid.spin(90, 1)
+                    droid.roll(0, 60, 3.3)
+                    print(time.process_time())
+
             def turnLeftLine():
 
 
@@ -175,16 +243,14 @@ def thread_function(name):
             def turnRightSquare():
 
                 if name == robots[0]:
-                    while time.process_time() < 5:
-                        continue
+
                     droid.reset_aim()
 
                     droid.spin(90, 0.5)
                     droid.roll(90, 60, 1)
 
                 if name == robots[1]:
-                    while time.process_time() < 5:
-                        continue
+
                     droid.reset_aim()
 
                     droid.roll(0, 60, 1)
@@ -193,17 +259,15 @@ def thread_function(name):
                     droid.roll(90, 60, 1)
 
                 if name == robots[2]:
-                    while time.process_time() < 10:
+                    while time.process_time() < 8:
                         continue
                     droid.reset_aim()
 
-                    while time.process_time() < 12:
-                        continue
-                    droid.roll(0, 60, 1.25)
+                    droid.roll(0, 40, 2)
                     droid.spin(90, 1)
 
                 if name == robots[3]:
-                    while time.process_time() < 13:
+                    while time.process_time() < 8:
                         continue
                     droid.reset_aim()
 
@@ -258,7 +322,7 @@ def thread_function(name):
             #turnRightLine()
             #turnLeftLine()
             #turnRightSquare()
-            turnLeftSquare()
+            turnRightSquare()
 
             print("Testing End...")
 
