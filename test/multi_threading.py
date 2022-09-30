@@ -16,14 +16,14 @@ initiator = False
 
 
 
-
+#Threading function which every robot uses when it connects to the computer
 def thread_function(name):
 
     print("Testing Starting...")
     print("Connecting to Bolt...")
     toy = scanner.find_BOLT(toy_name=name)
 
-
+    # Error checking and making sure the robots are connected
     if toy is not None:
         print("Connected.")
         with SpheroEduAPI(toy) as droid:
@@ -46,8 +46,8 @@ def thread_function(name):
             print(y)
             print("Testing Start...")
 
-            # Sub function for readability
-            # Need to align the timings so they execute at the same time.
+            # This functions is used to turn a formation of straight line robots to the right in a 90 degree angle
+            # It uses direction, engine power and time to make the robots move from point a to point b.
             def turnRightLine(amount):
                 num = 0
 
@@ -69,6 +69,8 @@ def thread_function(name):
 
                     num = num + 1
 
+            # This functions is used to turn a formation of straight line robots to the left in a 90 degree angle
+            # It uses direction, engine power and time to make the robots move from point a to point b.
             def turnLeftLine(amount):
                 num = 0
 
@@ -88,8 +90,8 @@ def thread_function(name):
 
                     num = num + 1
 
-
-
+            # This functions is used to turn a formation of square robots to the right in a 90 degree angle
+            # It uses direction, engine power and time to make the robots move from point a to point b.
             def turnRightSquare():
 
                 if name == robots[0]:
@@ -127,6 +129,9 @@ def thread_function(name):
                     droid.spin(90, 1)
                     droid.roll(90, 60, 1.1)
 
+
+            #This functions is used to turn a formation of square robots to the left in a 90 degree angle
+            # It uses direction, engine power and time to make the robots move from point a to point b.
             def turnLeftSquare():
 
                 if name == robots[1]:
@@ -169,12 +174,12 @@ def thread_function(name):
                     droid.spin(-90, 1)
                     droid.roll(-90, 60, 1.1)
 
-            #while time.process_time() < 10:
-                #continue
+
+            #This is where the actual code gets executed
             #turnRightLine(4)
             turnLeftLine(4)
             #turnRightSquare()
-            #turnRightSquare()
+            #turnLeftSquare()
 
             print("Testing End...")
 
@@ -184,7 +189,7 @@ def thread_function(name):
 
 
 
-
+#Threading each robot
 for robot in robots:
     x += 1
     robot = threading.Thread(target=thread_function, args=(robot,))
