@@ -18,7 +18,6 @@ def thread_function(name):
         with SpheroEduAPI(toy) as droid:
             index=robots.index(name)
             print("Testing Start...",index)
-            # start = time.time()
             if index == 0:
                 droid.set_main_led(Color(r=255, g=0, b=0)) #Sets whole set_matrix
                 droid.roll(0, 100, 1)
@@ -29,7 +28,6 @@ def thread_function(name):
                 droid.start_ir_evade(0,7)
                     # droid.listen_for_ir_message(0, 100)
                     # droid.onIRMessage4(4)
-                    # end = time.time()
             time.sleep(10)
             print("Testing End...")
 
