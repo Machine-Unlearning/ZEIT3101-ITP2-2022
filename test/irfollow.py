@@ -15,14 +15,15 @@ def thread_function(name):
     if toy is not None:
         print("Connected.")
         with SpheroEduAPI(toy) as droid:
+
             index=robots.index(name)
             print("Testing Start...",index)
             if index == 0:
                 droid.set_main_led(Color(r=255, g=0, b=0))
-                droid.listen_for_ir_message(4)
+                droid.start_ir_broadcast(0,7)
             if index == 1:
                 droid.set_main_led(Color(r=0, g=255, b=0))
-                droid.send_ir_message(4,5)
+                droid.start_ir_follow(0,7)
             time.sleep(10)
             print(droid.get_last_ir_message())
             print("Testing End...")
