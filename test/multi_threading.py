@@ -169,6 +169,7 @@ def thread_function(name):
                     droid.spin(-90, 1)
                     droid.roll(-90, 60, 0.8)
 
+            #Make all the robots turn to the right in an arrow formation
             def turnRightArrow():
 
                 if name == robots[0]:
@@ -195,6 +196,7 @@ def thread_function(name):
                     droid.roll(0, 60, 1.8)
                     droid.roll(90, 60, 1.85)
 
+            #Make all the robots turn left in an arrow formation
             def turnLeftArrow():
 
                 if name == robots[1]:
@@ -222,38 +224,88 @@ def thread_function(name):
                     droid.roll(0, 60, 1.8)
                     droid.roll(-90, 60, 1.85)
 
+            #Makes the robots do a square like movement whilst in a line, turning to the left
+            def boxLeftLine(amount):
+                turnLeftLine(amount)
+                time.sleep(15)
+                turnLeftLine(amount)
+                time.sleep(15)
+                turnLeftLine(amount)
+                time.sleep(15)
+                turnLeftLine(amount)
+
+            # Makes the robots do a square like movement whilst in a line, turning to the right
+            def boxRightLine(amount):
+                turnRightLine(amount)
+                time.sleep(15)
+                turnRightLine(amount)
+                time.sleep(15)
+                turnRightLine(amount)
+                time.sleep(15)
+                turnRightLine(amount)
+
+            # Makes the robots do a square like movement whilst in a square, turning to the left
+            def boxLeftSquare():
+                turnLeftSquare()
+                time.sleep(8)
+                turnLeftSquare()
+                time.sleep(8)
+                turnLeftSquare()
+                time.sleep(8)
+                turnLeftSquare()
+
+            # Makes the robots do a square like movement whilst in a square, turning to the right
+            def boxRightSquare():
+                turnRightSquare()
+                time.sleep(8)
+                turnRightSquare()
+                time.sleep(8)
+                turnRightSquare()
+                time.sleep(8)
+                turnRightSquare()
+
+            # Makes the robots do a square like movement whilst in an arrow, turning to the left
+            def boxLeftArrow():
+                turnLeftArrow()
+                time.sleep(8)
+                turnLeftArrow()
+                time.sleep(8)
+                turnLeftArrow()
+                time.sleep(8)
+                turnLeftArrow()
+
+            # Makes the robots do a square like movement whilst in an arrow, turning to the right
+            def boxRightArrow():
+                turnRightArrow()
+                time.sleep(8)
+                turnRightArrow()
+                time.sleep(8)
+                turnRightArrow()
+                time.sleep(8)
+                turnRightArrow()
 
             #This is where the actual code gets executed
+            #Uncomment one of the below functions and that will call the robots do to a square in any formation
+
+            #boxLeftLine(4)
+            #boxRightLine(4)
+            #boxLeftSquare()
+            #boxRightSquare()
+            #boxLeftArrow()
+            #boxRightArrow()
+
+            #If you would like to call the robots to do a single left or right turn call these functions
+            #By incorperating droid.roll(angle, motor_speed, time) or droid.spin(angle, time)
+            #in between these below functions you will make all the robots do that command.
+            #To make them synchronized use time.sleep(int)
+
+            #turnLeftLine(4)
             #turnRightLine(4)
-            #turnLeftLine(4)
+            #turnLeftSquare()
             #turnRightSquare()
-            #turnLeftSquare()
+            #turnLeftArrow()
+            #turnRightArrow()
 
-
-            #turnLeftLine(4)
-            #time.sleep(15)
-            #turnLeftLine(4)
-            #time.sleep(15)
-            #turnLeftLine(4)
-            #time.sleep(15)
-            #turnLeftLine(4)
-
-
-            #turnLeftSquare()
-            #time.sleep(8)
-            #turnLeftSquare()
-            #time.sleep(8)
-            #turnLeftSquare()
-            #time.sleep(8)
-            #turnLeftSquare()
-
-            turnLeftArrow()
-            time.sleep(8)
-            turnLeftArrow()
-            time.sleep(8)
-            turnLeftArrow()
-            time.sleep(8)
-            turnLeftArrow()
             print("Testing End...")
 
 
