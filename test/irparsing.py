@@ -8,8 +8,6 @@ from spherov2.sphero_edu import EventType, SpheroEduAPI
 from spherov2.types import Color
 robots = ["SB-8427", "SB-B85A"]
 
-
-
 def thread_function(name):
     print("Testing Starting...")
     print("Connecting to Bolt...")
@@ -29,7 +27,6 @@ def thread_function(name):
             time.sleep(10)
             print(droid.get_last_ir_message())
             print("Testing End...")
-
 
 for robot in robots:
     robot = threading.Thread(target=thread_function, args=(robot,))
