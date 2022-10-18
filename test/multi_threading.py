@@ -99,7 +99,7 @@ def thread_function(name):
                     droid.reset_aim()
 
                     droid.spin(90, 0.5)
-                    droid.roll(90, 60, 1)
+                    droid.roll(90, 60, 0.98)
 
                 if name == robots[1]:
 
@@ -108,26 +108,24 @@ def thread_function(name):
                     droid.roll(0, 60, 1)
                     droid.spin(90, 0.5)
                     droid.roll(90, 60, 1)
-                    droid.roll(90, 60, 1)
+                    droid.roll(90, 60, 0.7)
 
                 if name == robots[2]:
-                    while time.process_time() < 8:
-                        continue
+
                     droid.reset_aim()
 
-                    droid.roll(0, 40, 2)
-                    droid.spin(90, 1)
+                    droid.roll(0, 40, 1.65)
+                    droid.spin(90, 0.5)
 
                 if name == robots[3]:
-                    while time.process_time() < 8:
-                        continue
+
                     droid.reset_aim()
 
                     droid.roll(0, 60, 1)
 
-                    droid.roll(0, 60, 1)
+                    droid.roll(0, 60, 0.7)
                     droid.spin(90, 1)
-                    droid.roll(90, 60, 1.1)
+                    droid.roll(90, 60, 0.8)
 
 
             #This functions is used to turn a formation of square robots to the left in a 90 degree angle
@@ -135,51 +133,67 @@ def thread_function(name):
             def turnLeftSquare():
 
                 if name == robots[1]:
-                    while time.process_time() < 7:
+                    while time.process_time() < 8:
                         continue
                     droid.reset_aim()
 
                     droid.spin(-90, 0.5)
-                    droid.roll(-90, 60, 1)
+                    droid.roll(-90, 60, 0.98)
 
                 if name == robots[0]:
-                    while time.process_time() < 7:
+                    while time.process_time() < 8:
                         continue
-
                     droid.reset_aim()
 
                     droid.roll(0, 60, 1)
                     droid.spin(-90, 0.5)
                     droid.roll(-90, 60, 1)
-                    droid.roll(-90, 60, 1)
+                    droid.roll(-90, 60, 0.7)
 
                 if name == robots[3]:
-                    while time.process_time() < 10:
+                    while time.process_time() < 8:
                         continue
                     droid.reset_aim()
 
-                    while time.process_time() < 12:
-                        continue
-                    droid.roll(0, 60, 1.25)
-                    droid.spin(-90, 1)
+                    droid.roll(0, 40, 1.65)
+                    droid.spin(-90, 0.5)
 
                 if name == robots[2]:
-                    while time.process_time() < 13:
+                    while time.process_time() < 8:
                         continue
                     droid.reset_aim()
 
                     droid.roll(0, 60, 1)
 
-                    droid.roll(0, 60, 1)
+                    droid.roll(0, 60, 0.7)
                     droid.spin(-90, 1)
-                    droid.roll(-90, 60, 1.1)
+                    droid.roll(-90, 60, 0.8)
 
 
             #This is where the actual code gets executed
             #turnRightLine(4)
-            turnLeftLine(4)
+            #turnLeftLine(4)
             #turnRightSquare()
             #turnLeftSquare()
+
+
+            turnLeftLine(4)
+            time.sleep(15)
+            turnLeftLine(4)
+            time.sleep(15)
+            turnLeftLine(4)
+            time.sleep(15)
+            turnLeftLine(4)
+
+
+            #turnLeftSquare()
+            #time.sleep(8)
+            #turnLeftSquare()
+            #time.sleep(8)
+            #turnLeftSquare()
+            #time.sleep(8)
+            #turnLeftSquare()
+
 
             print("Testing End...")
 
