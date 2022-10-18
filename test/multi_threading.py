@@ -169,6 +169,64 @@ def thread_function(name):
                     droid.spin(-90, 1)
                     droid.roll(-90, 60, 0.8)
 
+            def turnRightArrow():
+
+                if name == robots[0]:
+
+                    droid.reset_aim()
+
+                    droid.roll(90, 60, 1)
+
+
+                if name == robots[1]:
+
+                    droid.reset_aim()
+
+                    droid.roll(0, 60, 0.5)
+                    droid.roll(90, 60, 1.5)
+
+                if name == robots[2]:
+
+                    droid.reset_aim()
+
+                    droid.spin(90, 1)
+
+                if name == robots[3]:
+
+                    droid.reset_aim()
+
+                    droid.roll(0, 60, 1)
+                    droid.roll(90, 60, 1)
+
+            def turnLeftArrow():
+
+                if name == robots[1]:
+
+                    droid.reset_aim()
+
+                    droid.roll(-90, 60, 1)
+
+
+                if name == robots[0]:
+
+                    droid.reset_aim()
+
+                    droid.roll(0, 60, 0.5)
+                    droid.roll(-90, 60, 1.5)
+
+                if name == robots[3]:
+
+                    droid.reset_aim()
+
+                    droid.spin(-90, 1)
+
+                if name == robots[2]:
+
+                    droid.reset_aim()
+
+                    droid.roll(0, 60, 1)
+                    droid.roll(-90, 60, 1)
+
 
             #This is where the actual code gets executed
             #turnRightLine(4)
