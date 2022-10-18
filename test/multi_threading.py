@@ -175,19 +175,16 @@ def thread_function(name):
 
                     droid.reset_aim()
 
-                    droid.roll(90, 60, 1)
-
+                    droid.roll(90, 60, 1.35)
 
                 if name == robots[1]:
 
                     droid.reset_aim()
 
-                    droid.roll(0, 60, 0.5)
-                    droid.roll(90, 60, 1.5)
+                    droid.roll(0, 60, 0.7)
+                    droid.roll(90, 60, 1.9)
 
                 if name == robots[2]:
-
-                    droid.reset_aim()
 
                     droid.spin(90, 1)
 
@@ -195,8 +192,8 @@ def thread_function(name):
 
                     droid.reset_aim()
 
-                    droid.roll(0, 60, 1)
-                    droid.roll(90, 60, 1)
+                    droid.roll(0, 60, 1.8)
+                    droid.roll(90, 60, 1.85)
 
             def turnLeftArrow():
 
@@ -204,15 +201,15 @@ def thread_function(name):
 
                     droid.reset_aim()
 
-                    droid.roll(-90, 60, 1)
+                    droid.roll(-90, 60, 1.35)
 
 
                 if name == robots[0]:
 
                     droid.reset_aim()
 
-                    droid.roll(0, 60, 0.5)
-                    droid.roll(-90, 60, 1.5)
+                    droid.roll(0, 60, 0.7)
+                    droid.roll(-90, 60, 1.9)
 
                 if name == robots[3]:
 
@@ -224,8 +221,8 @@ def thread_function(name):
 
                     droid.reset_aim()
 
-                    droid.roll(0, 60, 1)
-                    droid.roll(-90, 60, 1)
+                    droid.roll(0, 60, 1.8)
+                    droid.roll(-90, 60, 1.85)
 
 
             #This is where the actual code gets executed
@@ -235,13 +232,13 @@ def thread_function(name):
             #turnLeftSquare()
 
 
-            turnLeftLine(4)
-            time.sleep(15)
-            turnLeftLine(4)
-            time.sleep(15)
-            turnLeftLine(4)
-            time.sleep(15)
-            turnLeftLine(4)
+            #turnLeftLine(4)
+            #time.sleep(15)
+            #turnLeftLine(4)
+            #time.sleep(15)
+            #turnLeftLine(4)
+            #time.sleep(15)
+            #turnLeftLine(4)
 
 
             #turnLeftSquare()
@@ -252,7 +249,13 @@ def thread_function(name):
             #time.sleep(8)
             #turnLeftSquare()
 
-
+            turnRightArrow()
+            time.sleep(8)
+            turnRightArrow()
+            time.sleep(8)
+            turnRightArrow()
+            time.sleep(8)
+            turnRightArrow()
             print("Testing End...")
 
 
