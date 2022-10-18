@@ -213,8 +213,6 @@ def thread_function(name):
 
                 if name == robots[3]:
 
-                    droid.reset_aim()
-
                     droid.spin(-90, 1)
 
                 if name == robots[2]:
@@ -249,13 +247,13 @@ def thread_function(name):
             #time.sleep(8)
             #turnLeftSquare()
 
-            turnRightArrow()
+            turnLeftArrow()
             time.sleep(8)
-            turnRightArrow()
+            turnLeftArrow()
             time.sleep(8)
-            turnRightArrow()
+            turnLeftArrow()
             time.sleep(8)
-            turnRightArrow()
+            turnLeftArrow()
             print("Testing End...")
 
 
